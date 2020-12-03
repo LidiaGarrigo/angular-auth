@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -5,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './modules/home/';
+import { HeaderModule } from './shared/components/header';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { HomeModule } from './modules/home/';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HomeModule
+    HttpClientModule,
+    HomeModule,
+    HeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

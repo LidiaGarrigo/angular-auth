@@ -24,7 +24,7 @@ export class FakeBackend implements HttpInterceptor {
         return of(null).pipe(mergeMap(() => {
 
             // authenticate
-            if (request.url.endsWith('users/login') && request.method === 'POST') {
+            if (request.url.endsWith('api/users/login') && request.method === 'POST') {
                 // find if any user matches login credentials
                 let filteredUsers = users.filter(user => {
                     return user.username === request.body.username && user.password === request.body.password;
@@ -49,7 +49,7 @@ export class FakeBackend implements HttpInterceptor {
             }
 
             // get users
-            if (request.url.endsWith('/users') && request.method === 'GET') {
+            if (request.url.endsWith('api/users') && request.method === 'GET') {
                 // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
                 if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
                     return of(new HttpResponse({ status: 200, body: users }));
@@ -77,7 +77,7 @@ export class FakeBackend implements HttpInterceptor {
             }
 
             // register user
-            if (request.url.endsWith('users/register') && request.method === 'POST') {
+            if (request.url.endsWith('api/users/register') && request.method === 'POST') {
                 // get new user object from post body
                 let newUser = request.body;
 
