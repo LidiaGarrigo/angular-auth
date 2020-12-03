@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
+  isLogged: boolean;
   constructor() { }
 
   ngOnInit(): void {
+    this.isLogged = eval(localStorage.getItem('isLogged'));
   }
 
 }
