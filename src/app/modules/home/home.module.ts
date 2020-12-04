@@ -1,8 +1,8 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './components/home/home.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
+import { HomeComponent } from './components/home.component';
+import { HomePageComponent } from './pages/home-page.component';
 import { MaterialModule } from '../../shared/material';
 
 
@@ -13,6 +13,7 @@ import { MaterialModule } from '../../shared/material';
     CommonModule,
     MaterialModule,
     RouterModule
-  ]
+  ],
+  exports:[HomePageComponent]
 })
 export class HomeModule { }
