@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { LoginComponent } from './../../login/pages/login.component';
+import { Component, OnInit, ComponentFactoryResolver, ComponentFactory } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  template: `<app-home [isLogged]='isLogged' [factory]='factory'></app-home>`
 })
 export class HomePageComponent implements OnInit {
-
+  factory: ComponentFactory<any>;
   isLogged: boolean;
-  constructor() { }
+
+  constructor(private componentResolver: ComponentFactoryResolver) { }
 
   ngOnInit(): void {
     this.isLogged = eval(localStorage.getItem('isLogged'));
+    this.factory = this.componentResolver.resolveComponentFactory(LoginComponent);
   }
+
 
 }

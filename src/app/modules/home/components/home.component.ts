@@ -1,23 +1,24 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewInit,
+         Component,
+         ComponentFactory,
+         Input,
+         ViewChild,
+         ViewContainerRef} from '@angular/core';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewInit {
 
-  //@Input() imgSource: string;
   @Input() isLogged:boolean;
+  @Input() factory: ComponentFactory<null>;
+  @ViewChild('viewContainerRef', {read: ViewContainerRef}) vcr: ViewContainerRef;
 
-  constructor() { }
+  ngAfterViewInit()  {
 
-  ngOnChanges(changes: SimpleChanges): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-    console.log(changes.isLogged.currentValue);
+    setTimeout(_=>this.vcr.createComponent(this.factory));
   }
-  ngOnInit(): void {
-  }
-
 }

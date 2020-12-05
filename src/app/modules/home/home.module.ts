@@ -1,3 +1,5 @@
+import { LoginModule } from './../login/login.module';
+import { HeroModule } from './../../shared/components/hero';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,7 +14,9 @@ import { MaterialModule } from '../../shared/material';
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    HeroModule,
+    LoginModule
   ],
   exports:[HomePageComponent]
 })

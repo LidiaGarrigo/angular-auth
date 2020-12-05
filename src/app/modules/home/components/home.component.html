@@ -1,10 +1,5 @@
-<section *ngIf='!isLogged' class="hero is-info is-fullheight is-bold">
-  <div class="container">
-
+  <section>
+    <app-hero *ngIf='isLogged'></app-hero>
     <button mat-raised-button routerLink="/login" color='primary'>Start here</button>
-
-  </div>
   </section>
-<!--
-  <p *ngIf='!isLogged'>Home Works!!!</p>
- -->
+  <ng-container #viewContainerRef></ng-container>

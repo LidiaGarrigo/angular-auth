@@ -7,10 +7,10 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  showHeader = false;
+  showHeader = true;
   showSidebar = false;
   showFooter = false;
-  isAuthenticated = false;
+  isAuthenticated = true;
   title = 'People & Co';
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
