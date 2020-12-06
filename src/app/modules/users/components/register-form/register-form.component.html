@@ -1,7 +1,11 @@
 <section class="hero is-info is-fullheight is-bold">
   <mat-card>
     <form [formGroup]="formGroup" (ngSubmit)=onSubmit()>
-        <input type=hidden formControlName="id">
+      <input type=hidden formControlName="id">
+      <mat-form-field>
+        <mat-label>name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
       <mat-form-field>
         <mat-label>e-mail</mat-label>
         <input matInput formControlName="email">
@@ -10,8 +14,12 @@
         <mat-label>password</mat-label>
         <input matInput formControlName="password">
       </mat-form-field>
+      <mat-form-field>
+        <mat-label>confirm password</mat-label>
+        <input matInput formControlName="password">
+      </mat-form-field>
       <button mat-raised-button color='primary'>Submit</button>
       <mat-hint>Already registered? go to <a routerLink='/login'>login</a></mat-hint>
     </form>
-    </mat-card>
-  </section>
+  </mat-card>
+</section>

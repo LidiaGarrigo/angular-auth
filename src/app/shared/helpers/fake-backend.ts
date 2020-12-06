@@ -20,6 +20,7 @@ export class FakeBackend implements HttpInterceptor {
         // array in local storage for registered users
         let users: any[] = JSON.parse(localStorage.getItem('users')) || [];
 
+
         // wrap in delayed observable to simulate server api call
         return of(null).pipe(mergeMap(() => {
 
@@ -27,7 +28,7 @@ export class FakeBackend implements HttpInterceptor {
             if (request.url.endsWith('api/users/login') && request.method === 'POST') {
                 // find if any user matches login credentials
                 let filteredUsers = users.filter(user => {
-                    return user.username === request.body.username && user.password === request.body.password;
+                    return user.email === request.body.email && user.password === request.body.password;
                 });
 
                 if (filteredUsers.length) {
@@ -36,8 +37,7 @@ export class FakeBackend implements HttpInterceptor {
                     let body = {
                         id: user.id,
                         email: user.email,
-                        firstName: user.firstName,
-                        lastName: user.lastName,
+                        name: user.name,
                         token: 'fake-jwt-token'
                     };
 
@@ -60,15 +60,15 @@ export class FakeBackend implements HttpInterceptor {
             }
 
             // get user by id
-            if (request.url.match(/\/users\/\d+$/) && request.method === 'GET') {
+            if (request.url.match('api/users/') && request.method === 'GET') {
                 // check for fake auth token in header and return user if valid, this security is implemented server side in a real application
                 if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
                     // find user by id in users array
                     let urlParts = request.url.split('/');
                     let id = parseInt(urlParts[urlParts.length - 1]);
-                    let matchedUsers = users.filter(user => { return user.id === id; });
+                    let matchedUsers = users.filter(user => user.id === id);
                     let user = matchedUsers.length ? matchedUsers[0] : null;
-
+                    console.log('fake',users);
                     return of(new HttpResponse({ status: 200, body: user }));
                 } else {
                     // return 401 not authorised if token is null or invalid
@@ -80,11 +80,12 @@ export class FakeBackend implements HttpInterceptor {
             if (request.url.endsWith('api/users/register') && request.method === 'POST') {
                 // get new user object from post body
                 let newUser = request.body;
-
                 // validation
-                let duplicateUser = users.filter(user => { return user.username === newUser.username; }).length;
+                let duplicateUser = users.filter(user => { return user.email === newUser.email; }).length;
+
+
                 if (duplicateUser) {
-                    return throwError({ error: { message: 'Username "' + newUser.username + '" is already taken' } });
+                    return throwError({ error: { message: 'Email "' + newUser.email + '" is already taken' } });
                 }
 
                 // save new user

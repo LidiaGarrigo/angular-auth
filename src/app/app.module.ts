@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './modules/home/';
 import { HeaderModule } from './shared/components/header';
 import { HeroModule } from './shared/components/hero';
+import { fakeBackendProvider } from './shared/helpers/fake-backend';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { HeroModule } from './shared/components/hero';
     HeaderModule,
     HeroModule
   ],
-  providers: [],
+  providers: [fakeBackendProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

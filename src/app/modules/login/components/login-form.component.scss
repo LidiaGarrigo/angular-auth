@@ -2,13 +2,16 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  flex-flow: column nowrap;
+  justify-content: space-between;
   align-items: center;
 }
 
+
 form
 {
-  padding:{
+  padding: {
+
     top:10%;
     bottom:10%;
   }
@@ -16,6 +19,7 @@ form
   display:flex;
   flex-flow: column wrap;
   justify-content: space-between;
+  transform: translateY(-50%);
 }
 
 

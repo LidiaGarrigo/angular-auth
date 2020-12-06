@@ -6,14 +6,18 @@ section{
   flex-flow: column nowrap;
   justify-content:center;
   align-items: center;
+/*   overflow: hidden; */
 
 }
 
 
 button{
-  transform: translateY(-30vh);
+  position: absolute;
+   transform: translateY(30vh);
   min-width:300px;
   min-height: 50px;
   opacity: 0.5;
   font-family: monospace;
 }
+
+

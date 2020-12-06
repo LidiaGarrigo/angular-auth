@@ -1,5 +1,7 @@
   <section>
-    <app-hero *ngIf='isLogged'></app-hero>
-    <button mat-raised-button routerLink="/login" color='primary'>Start here</button>
+    <app-hero *ngIf='!isLogged'></app-hero>
+    <button mat-raised-button [routerLink]="['./']" routerLinkActive='active'
+    [fragment]="!isLogged?'login': 'profile'" color='primary'>Start here</button>
+  <!--   <a fragment='viewContainerRef' color='primary'>Start here</a> -->
   </section>
-  <ng-container #viewContainerRef></ng-container>
+  <ng-container  #viewContainerRef></ng-container>

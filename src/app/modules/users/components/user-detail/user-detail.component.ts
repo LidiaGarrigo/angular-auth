@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { ComponentFactory, Input, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component} from '@angular/core';
+import { User } from '../../../../shared/models';
 
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.scss']
 })
-export class UserDetailComponent implements OnInit {
+export class UserDetailComponent {
+  @Input() user:User;
+  @Input() factory: ComponentFactory<null>;
+  @ViewChild('viewContainerRef', {read: ViewContainerRef}) vcr: ViewContainerRef;
 
-  constructor() { }
+  ngAfterViewInit()  {
 
-  ngOnInit(): void {
+    setTimeout(_=>this.vcr.createComponent(this.factory));
   }
-
 }

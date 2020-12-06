@@ -12,13 +12,12 @@ import { AfterViewInit,
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements AfterViewInit {
-
   @Input() isLogged:boolean;
   @Input() factory: ComponentFactory<null>;
   @ViewChild('viewContainerRef', {read: ViewContainerRef}) vcr: ViewContainerRef;
 
   ngAfterViewInit()  {
 
-    setTimeout(_=>this.vcr.createComponent(this.factory));
+    setTimeout(_=>{this.vcr.createComponent(this.factory); console.log(this.vcr)});
   }
 }

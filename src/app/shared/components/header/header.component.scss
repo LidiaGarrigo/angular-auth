@@ -1,5 +1,20 @@
 .expanded-toolbar {
+  position: sticky;
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  top: 0;
+  // opacity: 0;
+  transition: opacity .25s ease-out, height .15s ease;
+  cursor: default;
+  user-select: none;
 }
+
+
+.sticky {
+  height: 64px;
+  opacity: 1;
+  transition: opacity .25s ease-out, height .15s ease;
+}
+
 

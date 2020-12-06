@@ -35,7 +35,8 @@ $angular-auth-theme: mat-light-theme((
     primary: $angular-auth-primary,
     accent: $angular-auth-accent,
     warn: $angular-auth-warn,
-  )
+  ),
+
 ));
 
 // Include theme styles for core and each component used in your app.
@@ -45,5 +46,8 @@ $angular-auth-theme: mat-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
+html{
+  scroll-behavior: smooth;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
