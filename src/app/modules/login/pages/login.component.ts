@@ -1,3 +1,4 @@
+import { FireAuthService } from 'src/app/shared/services';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
   formGroup: FormGroup;
   constructor(private fb: FormBuilder,
               private authService:AuthService,
+              private authFireService: FireAuthService,
               private router:Router) { }
 
   createForm(): FormGroup {
@@ -25,7 +27,11 @@ export class LoginComponent implements OnInit {
 
   }
 
-  loginUser(user){
+  async loginUser(user){
+      const result = await this.authFireService.login(user);
+      const token = result
+  }
+/*   loginUser(user){
 
     this.authService.loginUser$(user).subscribe(
       data=> {
@@ -36,7 +42,7 @@ export class LoginComponent implements OnInit {
 
     //navegue al componente profile.
 
-  }
+  } */
 
 
 

@@ -143,8 +143,13 @@
               "devServerTarget": "angular-auth:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "angular-auth"
 }
