@@ -1,3 +1,7 @@
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import { environment } from './../environments/environment';
+import { AngularFireModule } from '@angular/fire';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -22,7 +26,10 @@ import { fakeBackendProvider } from './shared/helpers/fake-backend';
     HttpClientModule,
     HomeModule,
     HeaderModule,
-    HeroModule
+    HeroModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [fakeBackendProvider],
   bootstrap: [AppComponent]

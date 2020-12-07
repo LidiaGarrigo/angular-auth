@@ -1,4 +1,4 @@
-import { HomePageComponent } from './modules/home';
+import { HomePageComponent } from './modules/home/pages/home-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './shared/guards';

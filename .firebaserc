@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "prueba-9ed76": {
+      "hosting": {
+        "angular-auth": [
+          "prueba-9ed76"
+        ]
+      }
+    }
+  }
+}

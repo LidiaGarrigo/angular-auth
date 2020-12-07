@@ -1,12 +1,11 @@
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { LoginFormComponent } from './../components/login-form.component';
-import { ComponentFactory, AfterViewInit } from '@angular/core';
+import { ComponentFactory } from '@angular/core';
 import { ComponentFactoryResolver } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HeaderComponent } from './../../../shared/components';
-import { ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { FireAuthService } from '../../../shared/services';
 
 @Component({
   selector: 'app-login',
@@ -26,6 +25,7 @@ export class LoginComponent implements OnInit/* , AfterViewInit */{
   constructor(private fb: FormBuilder,
               private componentResolver: ComponentFactoryResolver,
               private authService: AuthService,
+              private authFireService: FireAuthService,
               private router: Router){}
 
   createForm(): FormGroup{
@@ -36,9 +36,16 @@ export class LoginComponent implements OnInit/* , AfterViewInit */{
     })
   }
 
-  loginUser(user){
+  async loginUser(user){
+      const result = await this.authFireService.login(user);
+      const token  = await result.user.getIdToken();
+      console.log(result);
+      localStorage.setItem('accessToken', token);
+
+  }
+/*   loginUser(user){
     this.authService.loginuser$(user).subscribe(data => {
-      /*           this.authService.setUser(data.user); */
+      /*           this.authService.setUser(data.user);
 
                 this.authService.setToken(data.token);
                 this.router.onSameUrlNavigation = 'reload';
@@ -51,7 +58,7 @@ export class LoginComponent implements OnInit/* , AfterViewInit */{
               error => this.onIsError());
   }
 
-  onIsError(): void {
+ */  onIsError(): void {
     this.isError = true;
     setTimeout(() => {
       this.isError = false;
