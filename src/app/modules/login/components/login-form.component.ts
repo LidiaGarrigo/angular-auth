@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-login-form',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
+  @Input() formGroup:FormGroup;
+  @Output() addItem = new EventEmitter();
+
   constructor() { }
 
+  onSubmit(){
+
+    this.addItem.emit(this.formGroup.value);
+   }
+
   ngOnInit(): void {
+
   }
 
 }

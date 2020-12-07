@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -7,6 +8,7 @@ import { HeaderModule } from './shared/components/header';
 import { HomeModule } from './modules/home';
 import { LoginModule } from './modules/login';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { fakeBackendProvider } from './shared/helpers/fake-backend';
 
 
 @NgModule({
@@ -19,9 +21,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderModule,
     HomeModule,
     LoginModule,
+    HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [fakeBackendProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
