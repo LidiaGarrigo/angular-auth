@@ -1,7 +1,8 @@
-import { UserService } from './../../../../shared/services';
+import { Subscription } from 'rxjs';
+import { FireUserService, UserService } from './../../../../shared/services';
 import { User } from './../../../../shared/models';
 import { ActivatedRoute, Params } from '@angular/router';
-import { ComponentFactoryResolver } from '@angular/core';
+import { ComponentFactoryResolver, OnDestroy } from '@angular/core';
 import { Component, ComponentFactory, OnInit } from '@angular/core';
 import { HeaderComponent } from './../../../../shared/components';
 
@@ -9,15 +10,16 @@ import { HeaderComponent } from './../../../../shared/components';
   selector: 'app-user',
   template: `<app-user-detail [user]='user' [factory]='factory'></app-user-detail>`
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
   user:User;
+  sucription:Subscription;
   factory: ComponentFactory<any>;
   constructor(private componentResolver: ComponentFactoryResolver,
-              private userService:UserService,
+              private userFireService:FireUserService,
               private routes:ActivatedRoute) { }
 
   getUser(id){
-    this.userService.getById$(id).subscribe(data =>{this.user=data
+    this.sucription = this.userFireService.getById$(id).subscribe(data =>{this.user=data
     console.log('usercomponent',this.user)});
   }
 
@@ -30,6 +32,9 @@ export class UserComponent implements OnInit {
       });
 
     this.factory = this.componentResolver.resolveComponentFactory(HeaderComponent);
+  }
+  ngOnDestroy():void{
+    this.sucription.unsubscribe;
   }
 
 }

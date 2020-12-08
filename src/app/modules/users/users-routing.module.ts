@@ -1,3 +1,4 @@
+import { AuthGuard } from './../../shared/guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './pages/register/register.component';
@@ -7,7 +8,7 @@ import { UsersComponent } from './pages/users/users.component';
 const routes: Routes = [
   {path:'', component: UsersComponent},
   {path:'register', component: RegisterComponent},
-  {path:'profile/:id', component: UserComponent}];
+  {path:'profile/:id', component: UserComponent, canActivate: [AuthGuard]}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

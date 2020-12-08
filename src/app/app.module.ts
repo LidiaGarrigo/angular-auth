@@ -29,7 +29,8 @@ import { fakeBackendProvider } from './shared/helpers/fake-backend';
     HeroModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [fakeBackendProvider],
   bootstrap: [AppComponent]

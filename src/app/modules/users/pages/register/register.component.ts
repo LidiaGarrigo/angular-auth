@@ -1,4 +1,4 @@
-import { UserService } from './../../../../shared/services';
+import { FireUserService, FireAuthService } from './../../../../shared/services';
 import { User } from '../../../../shared/models/user';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -14,7 +14,8 @@ export class RegisterComponent implements OnInit {
   formGroup: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private userService:UserService,
+              private userFireService:FireUserService,
+              private authFireService:FireAuthService,
               private router: Router){}
 
   createForm(): FormGroup{
@@ -26,12 +27,13 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  registerUser(user:User){
-      this.userService.register$(user).subscribe(data=>{
-        this.router.onSameUrlNavigation = 'reload';
-        //this.router.navigate(['/']);
-        this.router.navigate([`/login`]);
-      })
+async  registerUser(user:User){
+
+const credentials = await this.authFireService.register(user);
+user.id = credentials.user.uid;
+await this.userFireService.create(user);
+this.router.navigate(['/login']);
+
   }
   ngOnInit(): void {
     this.formGroup= this.createForm();

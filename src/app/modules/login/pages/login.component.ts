@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit/* , AfterViewInit */{
   /* @ViewChild('loginForm', {read: LoginFormComponent}) formComponent: LoginFormComponent; */
   constructor(private fb: FormBuilder,
               private componentResolver: ComponentFactoryResolver,
-              private authService: AuthService,
               private authFireService: FireAuthService,
               private router: Router){}
 
@@ -41,6 +40,9 @@ export class LoginComponent implements OnInit/* , AfterViewInit */{
       const token  = await result.user.getIdToken();
       console.log(result);
       localStorage.setItem('accessToken', token);
+      this.router.onSameUrlNavigation = 'reload';
+      //this.router.navigate(['/']);
+      this.router.navigate([`/users/profile/${result.user.uid}`]);
 
   }
 /*   loginUser(user){
