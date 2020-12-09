@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services';
+import { FireAuthService } from '../../services';
 
 @Component({
   selector: 'app-header',
@@ -8,15 +8,17 @@ import { AuthService } from '../../services';
 })
 export class HeaderComponent implements OnInit {
 
-  isLogged:boolean;
-  constructor(private authService: AuthService) { }
+  isLogged: boolean;
+  constructor(private authFireService: FireAuthService) { }
 
   ngOnInit(): void {
-      this.authService.isLogged.subscribe(data=> this.isLogged=data);
+    this.authFireService.isLogged$().subscribe(user => {
+      if (user && user.uid) { this.isLogged = true } else { this.isLogged = false }
+    });
   }
 
-  logout(){
-    this.authService.logout();
+  logout() {
+    this.authFireService.logout();
   }
 
 }

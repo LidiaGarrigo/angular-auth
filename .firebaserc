@@ -6,6 +6,13 @@
           "auth-a87f3"
         ]
       }
+    },
+    "prueba-9ed76": {
+      "hosting": {
+        "angular-auth": [
+          "prueba-9ed76"
+        ]
+      }
     }
   }
 }

@@ -1,2 +1,8 @@
-<p>user-form works!</p>
+<form [formGroup]="formGroup" (ngSubmit)=onSubmit()>
+  <input type=hidden formControlName="id">
+    <input name="name" placeholder="name" formControlName="name">
+    <input name="email" placeholder="email" formControlName="email">
+    <input name="password" placeholder="password" formControlName="password">
+    <input name="password"  placeholder="confirm password" formControlName="password">
+  <button type="submit">Submit</button>
 <a routerLink='/login'>Already register. Go to Login</a>

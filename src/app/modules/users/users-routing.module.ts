@@ -6,7 +6,8 @@ import { AuthGuard } from 'src/app/shared/guards/auth.guard';
 
 const routes: Routes = [
   {path:'register', component:RegisterComponent},
-  {path:'login/:id', component: UserComponent}
+  {path:'profile/:id', component: UserComponent}
+
 ];
 
 @NgModule({

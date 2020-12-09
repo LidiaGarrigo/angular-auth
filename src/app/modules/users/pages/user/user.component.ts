@@ -1,4 +1,7 @@
+import { User } from './../../../../../../../src/app/shared/models/user';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { FireUserService } from '../../../../../../../src/app/shared/services';
 
 @Component({
   selector: 'app-user',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  user!:User;
+  constructor(private routes:ActivatedRoute,
+              private userFireService: FireUserService) { }
 
   //Leer el id del usuario que viene por parámetro
   //llamar al servicio UserService pasando el id.
@@ -17,8 +22,14 @@ export class UserComponent implements OnInit {
   //subscribirse al método y recoger el user que devuelve.
   //pintar los datos del user.
 
-  
+  getUser(id){
+    this.userFireService.getById$(id).subscribe(data => this.user = data);
+  }
+
   ngOnInit(): void {
+    this.routes.params.subscribe(
+      (params: Params)=> this.getUser(params.id)
+    )
   }
 
 }

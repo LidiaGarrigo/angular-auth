@@ -1,1 +1,2 @@
-<app-user-form></app-user-form>
+<app-user-form [formGroup]='formGroup'
+              (addItem)='registerUser($event)'></app-user-form>
