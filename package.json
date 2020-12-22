@@ -12,13 +12,23 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.2.0",
+<<<<<<< HEAD
     "@angular/cdk": "~10.2.7",
+=======
+    "@angular/cdk": "^10.2.7",
+>>>>>>> 7e883036157ea6e5674dabed29c134fa3f3ad3de
     "@angular/common": "~10.2.0",
     "@angular/compiler": "~10.2.0",
     "@angular/core": "~10.2.0",
     "@angular/fire": "^6.1.4",
+<<<<<<< HEAD
     "@angular/forms": "~10.2.0",
     "@angular/material": "~10.2.7",
+=======
+    "@angular/flex-layout": "^11.0.0-beta.33",
+    "@angular/forms": "~10.2.0",
+    "@angular/material": "^10.2.7",
+>>>>>>> 7e883036157ea6e5674dabed29c134fa3f3ad3de
     "@angular/platform-browser": "~10.2.0",
     "@angular/platform-browser-dynamic": "~10.2.0",
     "@angular/router": "~10.2.0",

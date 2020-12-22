@@ -50,6 +50,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/styles/palette.scss",
               "src/styles.scss"
             ],
             "scripts": []

@@ -27,8 +27,11 @@ export class FakeBackend implements HttpInterceptor {
             // authenticate
             if (request.url.endsWith('api/users/login') && request.method === 'POST') {
                 // find if any user matches login credentials
+<<<<<<< HEAD
 
                 console.log(users,request.body)
+=======
+>>>>>>> 7e883036157ea6e5674dabed29c134fa3f3ad3de
                 let filteredUsers = users.filter(user => {
                     return user.email === request.body.email && user.password === request.body.password;
                 });

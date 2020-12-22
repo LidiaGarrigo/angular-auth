@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+<<<<<<< HEAD
   firebaseConfig:
   {apiKey: "AIzaSyBDxqgyGSr-woACNqvUkfmHYShMyTi4ETk",
   authDomain: "prueba-9ed76.firebaseapp.com",
@@ -12,6 +13,17 @@ export const environment = {
   storageBucket: "prueba-9ed76.appspot.com",
   messagingSenderId: "280084137699",
   appId: "1:280084137699:web:52248726f3e5be8a7a67d6"}
+=======
+  firebaseConfig : {
+    apiKey: "AIzaSyBDxqgyGSr-woACNqvUkfmHYShMyTi4ETk",
+    authDomain: "prueba-9ed76.firebaseapp.com",
+    databaseURL: "https://prueba-9ed76.firebaseio.com",
+    projectId: "prueba-9ed76",
+    storageBucket: "prueba-9ed76.appspot.com",
+    messagingSenderId: "280084137699",
+    appId: "1:280084137699:web:52248726f3e5be8a7a67d6"
+  }
+>>>>>>> 7e883036157ea6e5674dabed29c134fa3f3ad3de
 };
 
 /*

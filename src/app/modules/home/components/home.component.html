@@ -1,6 +1,16 @@
+<<<<<<< HEAD
 <p>home works!</p>
 <button mat-raised-button
         color ='primary'
         routerLink='/login'>
     Start here
 </button>
+=======
+  <section>
+    <app-hero *ngIf='!isLogged'></app-hero>
+    <button mat-raised-button [routerLink]="['./']" routerLinkActive='active'
+    [fragment]="!isLogged?'login': 'profile'" color='primary'>Start here</button>
+  <!--   <a fragment='viewContainerRef' color='primary'>Start here</a> -->
+  </section>
+  <ng-container  #viewContainerRef></ng-container>
+>>>>>>> 7e883036157ea6e5674dabed29c134fa3f3ad3de

@@ -1,5 +1,6 @@
 {
   "targets": {
+<<<<<<< HEAD
     "auth-a87f3": {
       "hosting": {
         "angular-auth": [
@@ -7,6 +8,8 @@
         ]
       }
     },
+=======
+>>>>>>> 7e883036157ea6e5674dabed29c134fa3f3ad3de
     "prueba-9ed76": {
       "hosting": {
         "angular-auth": [

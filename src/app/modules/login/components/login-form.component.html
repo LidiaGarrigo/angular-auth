@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p>login-form works!</p>
 <a routerLink='/users/register'>go to register</a>
 <form [formGroup]='formGroup' (ngSubmit)='onSubmit()'>
@@ -7,3 +8,23 @@
   <button type="submit">Submit</button>
 </form>
 
+=======
+<ng-container  #viewContainerRef></ng-container>
+<!-- <section class="hero is-info is-fullheight is-bold"> -->
+<mat-card #login id='login'>
+  <form [formGroup]="formGroup" (ngSubmit)=onSubmit()>
+      <input type=hidden formControlName="id">
+    <mat-form-field>
+      <mat-label>e-mail</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>password</mat-label>
+      <input matInput formControlName="password">
+    </mat-form-field>
+    <button mat-raised-button color='primary'>Submit</button>
+    <mat-hint><a routerLink='/users/register'>register</a></mat-hint>
+  </form>
+  </mat-card>
+<!-- </section> -->
+>>>>>>> 7e883036157ea6e5674dabed29c134fa3f3ad3de

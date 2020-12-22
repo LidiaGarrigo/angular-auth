@@ -2,6 +2,10 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
+<<<<<<< HEAD
+=======
+// @import '~palette.scss';
+>>>>>>> 7e883036157ea6e5674dabed29c134fa3f3ad3de
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -12,11 +16,28 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
+<<<<<<< HEAD
 $angular-auth-primary: mat-palette($mat-blue-grey);
 $angular-auth-accent: mat-palette($mat-blue-grey, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $angular-auth-warn: mat-palette($mat-red);
+=======
+ $angular-auth-primary: mat-palette($mat-blue-grey);
+$angular-auth-accent: mat-palette($mat-blue-grey, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+ $angular-auth-warn: mat-palette($mat-red);
+
+/* $primary-color-dark:   #455A64;
+$primary-color:        #607D8B;
+$primary-color-light:  #CFD8DC;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #9E9E9E;
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        #BDBDBD; */
+>>>>>>> 7e883036157ea6e5674dabed29c134fa3f3ad3de
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
@@ -25,7 +46,12 @@ $angular-auth-theme: mat-light-theme((
     primary: $angular-auth-primary,
     accent: $angular-auth-accent,
     warn: $angular-auth-warn,
+<<<<<<< HEAD
   )
+=======
+  ),
+
+>>>>>>> 7e883036157ea6e5674dabed29c134fa3f3ad3de
 ));
 
 // Include theme styles for core and each component used in your app.
@@ -35,5 +61,11 @@ $angular-auth-theme: mat-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
+<<<<<<< HEAD
+=======
+html{
+  scroll-behavior: smooth;
+}
+>>>>>>> 7e883036157ea6e5674dabed29c134fa3f3ad3de
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

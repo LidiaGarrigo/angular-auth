@@ -1,4 +1,55 @@
+<<<<<<< HEAD
 <ul>
   <li *ngIf='!isLogged'><a>login</a></li>
   <li *ngIf='isLogged'><a (click)='logout()'>logout</a></li>
 </ul>
+=======
+<mat-toolbar color='primary' class="expanded-toolbar"
+[ngClass]="{'mat-elevation-z5' : true, 'sticky' : isSticky}">
+
+  <span>
+    <button mat-button routerLink="/home">{{title}}</button>
+    <!-- <button mat-button routerLink="/"><mat-icon>home</mat-icon></button> -->
+  </span>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button mat-button routerLink="/login" *ngIf='!isLogged'>
+      <mat-icon>power_settings_new</mat-icon>
+      Login
+    </button>
+    <button mat-button (click)="logout()" *ngIf='isLogged'>
+      <mat-icon>exit_to_app</mat-icon>
+      Logout
+    </button>
+    <button mat-button routerLink="/users/register" *ngIf='!isLogged'>
+      <mat-icon>person_add</mat-icon>
+      Register
+    </button>
+    <button mat-button routerLink="/users/profile" *ngIf='isLogged'>
+      <mat-icon>account_circle</mat-icon>
+      Profile
+    </button>
+  </div>
+  <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-menu x-position="before" #menu="matMenu" color='accent'>
+  <button mat-button routerLink="/login" *ngIf='!isLogged'>
+    <mat-icon>power_settings_new</mat-icon>
+    Login
+  </button>
+  <button mat-button (click)="logout()" *ngIf='isLogged'>
+    <mat-icon>exit_to_app</mat-icon>
+    Logout
+  </button>
+  <button mat-button routerLink="/users/register" *ngIf='!isLogged'>
+    <mat-icon>person_add</mat-icon>
+    Register
+  </button>
+  <button mat-button routerLink="/users/profile/1" *ngIf='isLogged'>
+    <mat-icon>account_circle</mat-icon>
+    Profile
+  </button>
+</mat-menu>
+>>>>>>> 7e883036157ea6e5674dabed29c134fa3f3ad3de
