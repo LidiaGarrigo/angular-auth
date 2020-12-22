@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '../../../../../../../src/app/shared/models';
-import { FireUserService, FireAuthService } from '../../../../../../../src/app/shared/services';
+import { User } from '../../../../shared/models/user';
+import { FireAuthService } from '../../../../shared/services/fire-auth.service';
+import { FireUserService } from '../../../../shared/services/fire-user.service';
 
 @Component({
   selector: 'app-register',

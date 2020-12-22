@@ -1,4 +1,4 @@
-import { UserComponent } from './../../../../../src/app/modules/users/pages/user/user.component';
+import { UserComponent } from '../../../../src/app/modules/users/pages/user/user.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './pages/register/register.component';

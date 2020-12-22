@@ -7,6 +7,9 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class FireUserService {
+  create(user: User) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private afs: AngularFirestore) { }
 

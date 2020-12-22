@@ -9,9 +9,10 @@ import { User } from 'src/app/shared/models/user';
 })
 export class UserFormComponent implements OnInit {
 
-  @Input() formGroup:FormGroup;
+  @Input() formGroup: FormGroup;
   @Output() addItem = new EventEmitter();
-  @Input() user:User;
+  @Input() user: User;
+
   constructor() { }
 
   ngOnInit(): void {

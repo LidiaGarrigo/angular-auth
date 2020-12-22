@@ -1,7 +1,7 @@
-import { User } from './../../../../../../../src/app/shared/models/user';
+import { User } from '../../../../../../src/app/shared/models/user';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { FireUserService } from '../../../../../../../src/app/shared/services';
+import { FireUserService } from '../../../../../../src/app/shared/services/fire-user.service';
 
 @Component({
   selector: 'app-user',
