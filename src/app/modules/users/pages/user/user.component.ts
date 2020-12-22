@@ -19,7 +19,7 @@ export class UserComponent implements OnInit, OnDestroy {
               private routes:ActivatedRoute) { }
 
   getUser(id){
-    this.sucription = this.userFireService.getById$(id).subscribe(data =>{this.user=data
+    this.sucription = this.userFireService.getById$(id).subscribe(data =>{this.user=data /* [0] */
     console.log('usercomponent',this.user)});
   }
 
@@ -29,6 +29,7 @@ export class UserComponent implements OnInit, OnDestroy {
       (params: Params) => {
         console.log(params.id);
        this.getUser(params.id);
+       this.userFireService.getByNameAndId().subscribe(console.log);
       });
 
     this.factory = this.componentResolver.resolveComponentFactory(HeaderComponent);

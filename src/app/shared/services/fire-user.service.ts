@@ -19,7 +19,12 @@ export class FireUserService {
 
   getById$(id):Observable<User>{
     return this.afs.collection<User>('users').doc(id).valueChanges().pipe(first());
+    // return this.afs.collection<User>('users', ref => ref.where('id','==','Lir0KR4sX5YhPA7MKgesedSJgv12')).valueChanges();
 
+  }
+
+  getByNameAndId(){
+    return this.afs.collection<User>('users', ref => ref.where('name','==','sara').where('id','==','Lir0KR4sX5YhPA7MKgesedSJgv12')).valueChanges();
   }
 
   create(user:User): Promise<void> {
